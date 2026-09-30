@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fetch UI</title>
+    </head>
+    <body>
+
+        <h1 id="tittle">No Tittle</h1>
+        <img id="gambar"  src="">
+
+        <script>
+            fetch('https://fakestoreapi.com/products/1')
+            .then(response => response.json())
+            .then(data => { 
+                 console.log(data)
+                 const tittle = document.getElementById("tittle");
+                 tittle.textContent = data.category
+                const gambar = document.getElementById("gambar");
+                gambar.src = data.image
+                })
+            .catch(error => console.error('Error:', error));
+        </script>
+    </body>
+</html>
